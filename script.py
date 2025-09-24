@@ -12,6 +12,11 @@ if os.path.exists("inventory.json"):
         quantity_set_two = inventory_data["quantity_set_two"]
         quantity_set_three = inventory_data["quantity_set_three"]
         quantity_set_four = inventory_data["quantity_set_four"]
+        quantity_set_five = inventory_data["quantity_set_five"]
+        quantity_set_six = inventory_data["quantity_set_six"]
+        quantity_set_seven = inventory_data["quantity_set_seven"]
+        quantity_set_eight = inventory_data["quantity_set_eight"]
+        quantity_set_nine = inventory_data["quantity_set_nine"]
 
 #from 22g IV to 10mL NaCl Flush Syringe
 full_name_set_one = ["22g IV", "24g IV", "IV starter kits", "Patient Belonging Bag", "Patient Gowns", "Socks", "Sterile Urine Cups", "Table Drapes", "Pillow Cases", "10ml NaCl Flush Syringe"]
@@ -31,23 +36,23 @@ order_when_set_four = [3, 3, 2, 4, 10, 1, 3, 0, 0, 0]
 
 #from Rapide Multistage Dilation Balloon Catheter 18-20 to Soft Guedel Airway (90mm, Size 4)
 full_name_set_five = ["18-20 Rapide Multistage Dilation Balloon Catheter", "Koala CLeaning Sponge + Pure Enzymatic", "Basin", "70% Isopropyl Alcohol", "1200 cc Collection container", "1200 Collection caps + tubing (set)", "60mm soft guedel airway", "70mm soft guedel airway", "80mm soft guedel airway", "90mm soft guedel airway"]
-order_when_set_five = []
+order_when_set_five = [0, 25, 25, 4, 3, 4, 0, 0, 0, 0]
 
 #from underpad(30x36in) to Polypropylene Pleated Filter Cartridge
 full_name_set_six = ["30x36 Underpad", "1 Gal Enzymatic Detergent", "QD x Pathology GPP Plus", "5oz AquaGel Lubricating Gel", "Metricide OPA Plug(ortho-phthalaldehyde sol", "hydrogen and methane Breath test (sibo 10 tube lactulose", "CO2 cannisters", "Yankauer with bulb tip", "20mL Syringe (Luer-Lock tip) monoject", "polypropylene pleated filter cartridge"]
-order_when_set_six = []
+order_when_set_six = [5, 1, 5, 6, 1, 5, 1, 5, 1, 0]
 
 #from O2 masks to Naloxone Hydrochloride Injection 0.4mg
 full_name_set_seven = ["O2 Masks", "CO2 7inch Cannula", "blunt tip needles (100/box", "laryngeal mask size 5", "MedGel General Monitoring ECG Electrode (60/pack)", "500ml Lactated Ringer Injection USP", "200mg per 20ml (10mg/mL) Propofol (20/box)", "50mL 8.4% sodium bicarbonate", "glycopyrrolate", "0.4mg Naloxone Hydrochloride Injection"]
-order_when_set_seven = []
+order_when_set_seven = [5, 30, 50, 1, 2, 0, 2, 0, 2, 2]
 
 #from Ondansetron injection 2mL to Albuterol Sulfate Inhalation Solution 2.5mg/3mL
 full_name_set_eight = ["2mL ondansetron injection", "ketorolac tromethamine (25 vials/box)", "05mg/mL Flumazenil", "atropine sulfate injection USP 0.1", "metoprolol tartrate (10/box)", "200mg/20mL Lidocaine hydrochloride injection 1%", "9mL amlodpine hydrochloride (10/box)", "50mg/mL Diphenhydramine Injection", "Epinephrine Injection (10/box)", "2.5mg/3mL Albuterol Sulfate Inhalation Solution"]
-order_when_set_eight = []
+order_when_set_eight = [2, 2, 2, 2, 2, 1, 2, 2, 0, 2]
 
 #from Albuterol Sulfate Inhalation Aerosol 90mcg to small trash bags
 full_name_set_nine = ["90mcg Albuterol Sulfate Inhalation Aerosol", "25mg/50mL Dextrose 50%", "graham crackers", "apple juice (8/pack)", "paper towels", "brown paper towels", "cups", "hand soap", "toilet paper", "purple wipes", "tissue boxes", "small trash bags"]
-order_when_set_nine = []
+order_when_set_nine = [0, 1, 10, 2, 2, 2, 2, 1, 5, 2, 2, 1]
 
 taking_out = True
 end = False
@@ -74,9 +79,6 @@ while not end:
 
     #to stop the search
     found_match = False
-
-    print([quantity_set_one])
-    print([quantity_set_two])
 
     if taking_out == True:
         print()
@@ -120,8 +122,85 @@ while not end:
                 found_match = True
                 list_two = True
 
+    # look for match in list 3
+    if found_match == False:
+        for index, element in enumerate(full_name_set_three):
+            element = element.lower()
+            if item_input in element.lower():
+                item_full_name = element
+                number_place = element
+                found_at = index
+                found_match = True
+                list_three = True
+
+    # look for match in list 4
+    if found_match == False:
+        for index, element in enumerate(full_name_set_four):
+            element = element.lower()
+            if item_input in element.lower():
+                item_full_name = element
+                number_place = element
+                found_at = index
+                found_match = True
+                list_four = True
+
+    # look for match in list 5
+    if found_match == False:
+        for index, element in enumerate(full_name_set_five):
+            element = element.lower()
+            if item_input in element.lower():
+                item_full_name = element
+                number_place = element
+                found_at = index
+                found_match = True
+                list_five = True
+
+    # look for match in list 6
+    if found_match == False:
+        for index, element in enumerate(full_name_set_six):
+            element = element.lower()
+            if item_input in element.lower():
+                item_full_name = element
+                number_place = element
+                found_at = index
+                found_match = True
+                list_six = True
+
+    # look for match in list 7
+    if found_match == False:
+        for index, element in enumerate(full_name_set_seven):
+            element = element.lower()
+            if item_input in element.lower():
+                item_full_name = element
+                number_place = element
+                found_at = index
+                found_match = True
+                list_seven = True
+
+    # look for match in list 8
+    if found_match == False:
+        for index, element in enumerate(full_name_set_eight):
+            element = element.lower()
+            if item_input in element.lower():
+                item_full_name = element
+                number_place = element
+                found_at = index
+                found_match = True
+                list_eight = True
+
+    # look for match in list 9
+    if found_match == False:
+        for index, element in enumerate(full_name_set_nine):
+            element = element.lower()
+            if item_input in element.lower():
+                item_full_name = element
+                number_place = element
+                found_at = index
+                found_match = True
+                list_nine = True
+
     #if the item entered is not found anywhere
-    if not found_match:
+    if not found_match and item_input!= "take out" and item_input!= "put in" :
         print("Sorry, the item you are looking for is not in the inventory")
         continue
 
@@ -154,20 +233,128 @@ while not end:
                 else:
                     print("You are exactly at the quantity to reorder" + Style.RESET_ALL)
 
+        #list 3
+        elif list_three == True:
+            quantity_set_three[found_at] = (int(quantity_set_three[found_at]) - int(number))
+            print("Ok! Now you have " + str(quantity_set_three[found_at]) + " of " + item_full_name)
+            if quantity_set_three[found_at] <= order_when_set_three[found_at]:
+                print(Fore.RED + "It is time to order " + item_full_name)
+                if quantity_set_three[found_at] < order_when_set_three[found_at]:
+                    print("You are " + str(abs(quantity_set_three[found_at] - order_when_set_three[found_at])) + " below the minimum amount " + str(order_when_set_three[found_at]) + Style.RESET_ALL)
+                else:
+                    print("You are exactly at the quantity to reorder" + Style.RESET_ALL)
+
+        #list 4
+        elif list_four == True:
+            quantity_set_four[found_at] = (int(quantity_set_four[found_at]) - int(number))
+            print("Ok! Now you have " + str(quantity_set_four[found_at]) + " of " + item_full_name)
+            if quantity_set_four[found_at] <= order_when_set_four[found_at]:
+                print(Fore.RED + "It is time to order " + item_full_name)
+                if quantity_set_four[found_at] < order_when_set_four[found_at]:
+                    print("You are " + str(abs(quantity_set_four[found_at] - order_when_set_four[found_at])) + " below the minimum amount " + str(order_when_set_four[found_at]) + Style.RESET_ALL)
+                else:
+                    print("You are exactly at the quantity to reorder" + Style.RESET_ALL)
+
+
+        # list 5
+        elif list_five == True:
+            quantity_set_five[found_at] = (int(quantity_set_five[found_at]) - int(number))
+            print("Ok! Now you have " + str(quantity_set_five[found_at]) + " of " + item_full_name)
+            if quantity_set_five[found_at] <= order_when_set_five[found_at]:
+                print(Fore.RED + "It is time to order " + item_full_name)
+                if quantity_set_five[found_at] < order_when_set_five[found_at]:
+                    print("You are " + str(abs(quantity_set_five[found_at] - order_when_set_five[found_at])) + " below the minimum amount " + str(order_when_set_five[found_at]) + Style.RESET_ALL)
+                else:
+                    print("You are exactly at the quantity to reorder" + Style.RESET_ALL)
+
+        # list 6
+        elif list_six == True:
+            quantity_set_six[found_at] = (int(quantity_set_six[found_at]) - int(number))
+            print("Ok! Now you have " + str(quantity_set_six[found_at]) + " of " + item_full_name)
+            if quantity_set_six[found_at] <= order_when_set_six[found_at]:
+                print(Fore.RED + "It is time to order " + item_full_name)
+                if quantity_set_six[found_at] < order_when_set_six[found_at]:
+                    print("You are " + str(abs(quantity_set_six[found_at] - order_when_set_six[found_at])) + " below the minimum amount " + str(order_when_set_six[found_at]) + Style.RESET_ALL)
+                else:
+                    print("You are exactly at the quantity to reorder" + Style.RESET_ALL)
+
+        # list 7
+        elif list_seven == True:
+            quantity_set_seven[found_at] = (int(quantity_set_seven[found_at]) - int(number))
+            print("Ok! Now you have " + str(quantity_set_seven[found_at]) + " of " + item_full_name)
+            if quantity_set_seven[found_at] <= order_when_set_seven[found_at]:
+                print(Fore.RED + "It is time to order " + item_full_name)
+                if quantity_set_seven[found_at] < order_when_set_seven[found_at]:
+                    print("You are " + str(abs(quantity_set_seven[found_at] - order_when_set_seven[found_at])) + " below the minimum amount " + str(order_when_set_seven[found_at]) + Style.RESET_ALL)
+                else:
+                    print("You are exactly at the quantity to reorder" + Style.RESET_ALL)
+
+        # list 8
+        elif list_eight == True:
+            quantity_set_eight[found_at] = (int(quantity_set_eight[found_at]) - int(number))
+            print("Ok! Now you have " + str(quantity_set_eight[found_at]) + " of " + item_full_name)
+            if quantity_set_eight[found_at] <= order_when_set_eight[found_at]:
+                print(Fore.RED + "It is time to order " + item_full_name)
+                if quantity_set_eight[found_at] < order_when_set_eight[found_at]:
+                    print("You are " + str(abs(quantity_set_eight[found_at] - order_when_set_eight[found_at])) + " below the minimum amount " + str(order_when_set_eight[found_at]) + Style.RESET_ALL)
+                else:
+                    print("You are exactly at the quantity to reorder" + Style.RESET_ALL)
+
+        # list 9
+        elif list_nine == True:
+            quantity_set_nine[found_at] = (int(quantity_set_nine[found_at]) - int(number))
+            print("Ok! Now you have " + str(quantity_set_nine[found_at]) + " of " + item_full_name)
+            if quantity_set_nine[found_at] <= order_when_set_nine[found_at]:
+                print(Fore.RED + "It is time to order " + item_full_name)
+                if quantity_set_nine[found_at] < order_when_set_nine[found_at]:
+                    print("You are " + str(abs(quantity_set_nine[found_at] - order_when_set_nine[found_at])) + " below the minimum amount " + str(order_when_set_nine[found_at]) + Style.RESET_ALL)
+                else:
+                    print("You are exactly at the quantity to reorder" + Style.RESET_ALL)
+
+
     #for when you're putting in items
     else:
         number = input("How many of " + item_full_name + " are you restocking? ")
+
         if list_one == True:
             quantity_set_one[found_at] = (int(quantity_set_one[found_at]) + int(number))
             print("Ok! Now you have " + str(quantity_set_one[found_at]) + " of " + item_full_name)
         elif list_two == True:
             quantity_set_two[found_at] = (int(quantity_set_two[found_at]) + int(number))
             print("Ok! Now you have " + str(quantity_set_two[found_at]) + " of " + item_full_name)
+        elif list_three == True:
+            quantity_set_three[found_at] = (int(quantity_set_three[found_at]) + int(number))
+            print("Ok! Now you have " + str(quantity_set_three[found_at]) + " of " + item_full_name)
+        elif list_four == True:
+            quantity_set_four[found_at] = (int(quantity_set_four[found_at]) + int(number))
+            print("Ok! Now you have " + str(quantity_set_four[found_at]) + " of " + item_full_name)
+        elif list_five == True:
+            quantity_set_five[found_at] = (int(quantity_set_five[found_at]) + int(number))
+            print("Ok! Now you have " + str(quantity_set_five[found_at]) + " of " + item_full_name)
+        elif list_six == True:
+            quantity_set_six[found_at] = (int(quantity_set_six[found_at]) + int(number))
+            print("Ok! Now you have " + str(quantity_set_six[found_at]) + " of " + item_full_name)
+        elif list_seven == True:
+            quantity_set_seven[found_at] = (int(quantity_set_seven[found_at]) + int(number))
+            print("Ok! Now you have " + str(quantity_set_seven[found_at]) + " of " + item_full_name)
+        elif list_eight == True:
+            quantity_set_eight[found_at] = (int(quantity_set_eight[found_at]) + int(number))
+            print("Ok! Now you have " + str(quantity_set_eight[found_at]) + " of " + item_full_name)
+        elif list_nine == True:
+            quantity_set_nine[found_at] = (int(quantity_set_nine[found_at]) + int(number))
+            print("Ok! Now you have " + str(quantity_set_nine[found_at]) + " of " + item_full_name)
 
 #outside of the loop- when the user ends the program
 inventory_data = {
     "quantity_set_one": quantity_set_one,
     "quantity_set_two": quantity_set_two,
+    "quantity_set_three": quantity_set_three,
+    "quantity_set_four": quantity_set_four,
+    "quantity_set_five": quantity_set_five,
+    "quantity_set_six": quantity_set_six,
+    "quantity_set_seven": quantity_set_seven,
+    "quantity_set_eight": quantity_set_eight,
+    "quantity_set_nine": quantity_set_nine,
 }
 with open("inventory.json", "w") as inventory_file_save:
     json.dump(inventory_data, inventory_file_save)
